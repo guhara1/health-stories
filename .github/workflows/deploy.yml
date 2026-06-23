@@ -30,9 +30,11 @@ jobs:
           BASE_PATH: /health-stories
           SITE_URL: https://guhara1.github.io/health-stories
       - name: Configure Pages
-        # Pages는 저장소 설정에서 한 번만 활성화(Source: GitHub Actions)하면 됨.
-        # 워크플로 토큰은 Pages 사이트를 '생성'할 권한이 없어 enablement는 사용하지 않음.
+        # enablement: true → 워크플로에서 Pages 사이트 자동 활성화 시도.
+        # (저장소 Settings → Pages → Source: GitHub Actions 가 이미 켜져 있으면 그대로 사용)
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
