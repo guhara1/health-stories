@@ -219,7 +219,7 @@ function stationPage(reg, sys) {
     ${authorBox()}
     ${ctaBtn(station + " 출장마사지")}
   </div></article>
-  ${reviewsSection()}
+  ${reviewsSection(station)}
   ${pricingTable()}`;
 
   const path = `/subway/${reg.slug}/`;
@@ -346,7 +346,7 @@ function linePage(line, sys) {
     ${authorBox()}
     ${ctaBtn(line.name + " 출장마사지")}
   </div></article>
-  ${reviewsSection()}
+  ${reviewsSection(line.name)}
   ${pricingTable()}`;
 
   const path = `/subway/line/${line.slug}/`;

@@ -489,7 +489,7 @@ function placePage(r, baseUrl) {
     r.name
   )} 출장마사지 전화예약 ${esc(site.phone)}</a></p>
   </div></article>
-  ${reviewsSection()}
+  ${reviewsSection(path)}
   ${pricingTable()}`;
 
   const path = `${baseUrl}${r.slug}/`;
@@ -608,7 +608,7 @@ function regionIndex() {
     <p>똑같이 ‘출장마사지’라고 해도 지역에 따라 방문이 닿는 권역, 도착까지 걸리는 시간, 이용이 몰리는 시간대가 제각각입니다. 도심이나 역세권은 비교적 빠르게 닿는 편이고, 외곽은 이동 거리만큼 도착이 늦어질 수 있습니다. 원하는 지역과 시간대를 미리 떠올려 두면 안내가 한결 수월합니다. 관리 방식을 먼저 정하고 싶다면 <a href="/program/">마사지 프로그램</a>에서 스웨디시·타이마사지·아로마·홈타이를 견줘 보세요.</p>
     <div class="callout">표시된 정보와 가격은 변동될 수 있습니다. <strong>실제 방문 가능 여부와 비용은 예약 전 ${esc(site.phone)}로 직접 확인</strong>하세요.</div>
   </div></section>
-  ${reviewsSection()}
+  ${reviewsSection("region-index")}
   ${pricingTable()}`;
 
   return layout({
@@ -675,7 +675,7 @@ function homePage() {
     <p>저희는 ‘무조건 가능’ 같은 단정이나 자극적인 문구 대신, 예약 전에 스스로 따져 볼 항목을 먼저 보여 드립니다. <a href="/region/">지역별 찾기</a>와 <a href="/subway/">지하철역별 찾기</a>로 현재 위치에서 방문 가능한 권역을 좁히고, <a href="/program/">마사지 프로그램</a>에서 스웨디시·타이마사지·아로마·홈타이의 차이를 확인한 뒤, <a href="/guide/">예약 가이드</a>의 체크리스트 순서대로 점검하면 처음 이용하는 분도 막힘 없이 진행할 수 있습니다. 모든 가격·운영 정보는 바뀔 수 있으므로 통화 시점에 다시 확인하는 것을 권장합니다.</p>
   </div></section>
 
-  ${reviewsSection()}
+  ${reviewsSection("home")}
   ${pricingTable()}
 
   <section class="section section-alt"><div class="container">
@@ -809,7 +809,7 @@ function outcallPage() {
       <h2>지역별 출장마사지</h2>
       <p>지역에 따라 방문이 닿는 권역과 도착 소요 시간이 제각각입니다. 아래에서 원하는 지역을 고른 다음, 더 작은 동네와 역세권까지 짚어 보면 안내가 한층 또렷해집니다.</p>
       ${regionLinks()}`,
-    extras: `${reviewsSection()}\n  ${pricingTable()}`,
+    extras: `${reviewsSection("outcall")}\n  ${pricingTable()}`,
     faqs: [
       {
         q: "출장마사지와 홈타이는 다른가요?",
@@ -873,7 +873,7 @@ function guidePage() {
       <h2>프로그램·지역 안내</h2>
       <p>관리 방식을 먼저 정하고 싶다면 <a href="/program/">마사지 프로그램</a>에서 견줘 본 뒤, 아래 지역에서 원하는 곳을 골라 방문 가능 여부를 확인하세요.</p>
       ${regionLinks()}`,
-    extras: `${reviewsSection()}\n  ${pricingTable()}`,
+    extras: `${reviewsSection("guide")}\n  ${pricingTable()}`,
     faqs: [
       {
         q: "당일 예약도 가능한가요?",
@@ -982,7 +982,7 @@ function contactPage() {
       <h2>지역으로 바로 확인하기</h2>
       <p>아래에서 원하는 지역을 고르면 그 지역의 출장마사지·홈타이 안내와 더 작은 동네·역세권 페이지로 넘어갈 수 있습니다.</p>
       ${regionLinks()}`,
-    extras: `${reviewsSection()}\n  ${pricingTable()}`,
+    extras: `${reviewsSection("contact")}\n  ${pricingTable()}`,
     faqs: [
       {
         q: "전화 외에 예약 방법이 있나요?",

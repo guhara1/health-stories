@@ -319,7 +319,7 @@ export function pricingTable() {
   </section>`;
 }
 
-// 고객 후기 (전 페이지 공용 컴포넌트)
+// 고객 후기 (전 페이지 공용 컴포넌트) — 페이지별로 다른 후기가 노출되도록 풀을 넉넉히 둔다
 export const REVIEWS = [
   { name: "김○○", meta: "서울 강남 · 스웨디시", rating: 5, text: "통화하고 30분 조금 넘어 도착했고, 스웨디시 받고 나니 굳어 있던 어깨가 훨씬 편해졌어요." },
   { name: "이○○", meta: "경기 수원 · 홈타이", rating: 5, text: "굳이 나가지 않고 집에서 받을 수 있어 좋았습니다. 응대도 정중했고 약속한 시간도 잘 지켜졌어요." },
@@ -327,10 +327,30 @@ export const REVIEWS = [
   { name: "정○○", meta: "인천 · 24시간", rating: 5, text: "자정 가까운 시간에 문의했는데도 응대가 빨랐고, 안내받은 금액 그대로여서 마음이 놓였습니다." },
   { name: "최○○", meta: "대구 · 타이마사지", rating: 5, text: "스트레칭 중심으로 쭉쭉 풀어 주셔서 개운했어요. 다음에도 같은 구성으로 받고 싶네요." },
   { name: "한○○", meta: "서울 마포 · 홈타이", rating: 4, text: "홈타이가 처음이라 걱정했는데 준비할 것들을 미리 알려 주셔서 부담 없이 받았습니다." },
+  { name: "윤○○", meta: "경기 성남 · 발마사지", rating: 5, text: "종일 서서 일해 발이 무거웠는데, 발마사지로 종아리까지 풀고 나니 발걸음이 가벼웠어요." },
+  { name: "장○○", meta: "대전 둔산 · 아로마", rating: 4, text: "출장이라 숙소에서 받았는데 준비부터 마무리까지 군더더기 없이 깔끔하게 진행됐습니다." },
+  { name: "임○○", meta: "광주 상무 · 스웨디시", rating: 5, text: "강도를 중간으로 부탁드렸더니 딱 맞게 맞춰 주셔서 자는 듯이 받았네요. 만족합니다." },
+  { name: "오○○", meta: "서울 송파 · 커플", rating: 5, text: "둘이 같은 시간에 나란히 받을 수 있어 좋았어요. 사전에 동선을 잘 안내해 주셨습니다." },
+  { name: "강○○", meta: "울산 삼산 · 타이마사지", rating: 4, text: "오래 앉아 일해 굳은 허리를 늘려 가며 풀어 주셔서 한결 가벼워졌습니다." },
+  { name: "조○○", meta: "경기 고양 · 홈타이", rating: 5, text: "아이 재우고 늦게 받았는데 조용히 진행해 주셔서 편했어요. 시간 약속도 정확했습니다." },
 ];
 
-export function reviewsSection() {
-  const cards = REVIEWS.map(
+const REVIEW_HEADINGS = [
+  "먼저 받아 본 분들의 이야기",
+  "이용해 본 분들이 남긴 후기",
+  "방문 받아 본 분들의 후기",
+  "이용 후기 살펴보기",
+];
+
+// 키(지역명·역명·경로 등)를 받아 페이지마다 다른 후기 6개와 제목을 노출
+export function reviewsSection(key = "") {
+  let h = 2166136261 >>> 0;
+  const k = String(key) || "default";
+  for (let i = 0; i < k.length; i++) { h ^= k.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+  const start = h % REVIEWS.length;
+  const picked = Array.from({ length: 6 }, (_, i) => REVIEWS[(start + i) % REVIEWS.length]);
+  const heading = REVIEW_HEADINGS[h % REVIEW_HEADINGS.length];
+  const cards = picked.map(
     (r) => `
       <div class="review-card">
         <div class="stars" aria-label="별점 ${r.rating}점">${"★".repeat(r.rating)}<span class="off">${"★".repeat(5 - r.rating)}</span></div>
@@ -343,7 +363,7 @@ export function reviewsSection() {
     <div class="container">
       <div class="reviews-head">
         <span class="eyebrow">이용 후기</span>
-        <h2>먼저 받아 본 분들의 이야기</h2>
+        <h2>${esc(heading)}</h2>
         <div class="rating-badge">
           <span class="g">G</span>
           <span class="score">4.8</span>

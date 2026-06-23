@@ -217,7 +217,7 @@ function dongPage(gu, dongName, siblings) {
     ${authorBox()}
     ${ctaBtn(dongName + " 출장마사지")}
   </div></article>
-  ${reviewsSection()}
+  ${reviewsSection(dongName)}
   ${pricingTable()}`;
 
   const html = layout({
@@ -378,7 +378,7 @@ function guPage(gu) {
     ${authorBox()}
     ${ctaBtn("서울 " + gu.name + " 출장마사지")}
   </div></article>
-  ${reviewsSection()}
+  ${reviewsSection(gu.name)}
   ${pricingTable()}`;
 
   const html = layout({
@@ -451,7 +451,7 @@ function seoulOverviewPage() {
     </div>
     ${authorBox()}
   </div></section>
-  ${reviewsSection()}
+  ${reviewsSection("seoul-hub")}
   ${pricingTable()}`;
 
   return {

@@ -292,7 +292,7 @@ function dongPage(node) {
     ${authorBox()}
     ${ctaBtn(dongName + " 출장마사지")}
   </div></article>
-  ${reviewsSection()}
+  ${reviewsSection(node.url)}
   ${pricingTable()}`;
 
   return {
@@ -493,7 +493,7 @@ function branchPage(node) {
     <section class="section section-alt"><div class="container prose">
       ${secFeature}${secWho}${secCompare}${secGuide}${secPrograms}${secBooking}${secChecklist}${secFaq}
     </div></section>
-    ${reviewsSection()}
+    ${reviewsSection(node.url)}
   ${pricingTable()}`;
   } else {
     // 본문 섹션 순서를 페이지마다 다르게(도어웨이 방지) — 도입/목록/FAQ 위치는 유지
@@ -508,7 +508,7 @@ function branchPage(node) {
       ${childSection}
       ${post}${secFaq}
     </div></article>
-    ${reviewsSection()}
+    ${reviewsSection(node.url)}
   ${pricingTable()}`;
   }
 
