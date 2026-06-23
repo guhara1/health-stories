@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포 1건만 유지 (진행 중 실행은 취소하지 않고 큐잉)
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build static site
+        run: node scripts/build.mjs
+        env:
+          # 프로젝트 Pages는 https://<user>.github.io/<repo>/ 하위 경로로 서빙됨
+          BASE_PATH: /health-stories
+          SITE_URL: https://guhara1.github.io/health-stories
+      - name: Configure Pages
+        # Pages는 저장소 설정에서 한 번만 활성화(Source: GitHub Actions)하면 됨.
+        # 워크플로 토큰은 Pages 사이트를 '생성'할 권한이 없어 enablement는 사용하지 않음.
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
