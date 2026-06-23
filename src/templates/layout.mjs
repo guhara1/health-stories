@@ -289,9 +289,9 @@ export function layout(o) {
 
 // 코스별 기본 요금표 (전 페이지 공용 컴포넌트)
 export const PRICING = [
-  { name: "60분 코스", price: "90,000", dur: "60분", desc: "기본 컨디션·릴랙스 케어" },
-  { name: "90분 코스", price: "150,000", dur: "90분", desc: "아로마 포함 추천 구성", featured: true },
-  { name: "120분 코스", price: "180,000", dur: "120분", desc: "전신 집중 프리미엄 케어" },
+  { name: "60분 코스", price: "90,000", dur: "60분", desc: "핵심 부위 위주 가벼운 이완" },
+  { name: "90분 코스", price: "150,000", dur: "90분", desc: "전신 균형 표준 구성·아로마 포함", featured: true },
+  { name: "120분 코스", price: "180,000", dur: "120분", desc: "구석구석 집중하는 프리미엄 구성" },
 ];
 
 export function pricingTable() {
@@ -310,23 +310,23 @@ export function pricingTable() {
   <section class="pricing" aria-label="코스별 기본 요금">
     <div class="container">
       <div class="pricing-head">
-        <h2>코스별 기본 요금</h2>
-        <p>60·90·120분 코스별 기본 요금입니다. 숨겨진 추가 비용 없이 투명하게 안내합니다.</p>
+        <h2>코스 시간으로 보는 기본 요금</h2>
+        <p>관리 시간(60·90·120분)을 기준으로 정리한 기본 금액입니다. 표시되지 않은 별도 비용은 두지 않는 것을 원칙으로 안내합니다.</p>
       </div>
       <div class="pricing-grid">${cards}</div>
-      <p class="pricing-note">지역·예약 시간대·이동 거리에 따라 상담 시 최종 확인됩니다. <a href="/guide/">상세 요금 안내 보기 →</a></p>
+      <p class="pricing-note">방문 지역과 시간대, 이동 거리에 따라 최종 금액은 통화 시 확정됩니다. <a href="/guide/">요금·예약 기준 자세히 보기 →</a></p>
     </div>
   </section>`;
 }
 
 // 고객 후기 (전 페이지 공용 컴포넌트)
 export const REVIEWS = [
-  { name: "김○○", meta: "서울 강남 · 스웨디시", rating: 5, text: "예약하고 35분 만에 도착했어요. 스웨디시로 뭉친 어깨가 한결 가벼워졌습니다." },
-  { name: "이○○", meta: "경기 수원 · 홈타이", rating: 5, text: "집에서 편하게 받을 수 있어 좋았어요. 관리사님이 친절하고 시간도 정확했습니다." },
-  { name: "박○○", meta: "부산 해운대 · 아로마", rating: 4, text: "출장 아로마 받았는데 향도 좋고 분위기가 차분해서 만족스러웠습니다." },
-  { name: "정○○", meta: "인천 · 24시간", rating: 5, text: "늦은 시간에도 빠르게 안내받았어요. 가격도 처음 안내와 같아 신뢰가 갔습니다." },
-  { name: "최○○", meta: "대구 · 타이마사지", rating: 5, text: "스트레칭 위주로 시원하게 받았네요. 다음에 또 이용할 생각입니다." },
-  { name: "한○○", meta: "서울 마포 · 홈타이", rating: 4, text: "홈타이 처음인데 준비물 안내가 자세해서 편하게 받았습니다." },
+  { name: "김○○", meta: "서울 강남 · 스웨디시", rating: 5, text: "통화하고 30분 조금 넘어 도착했고, 스웨디시 받고 나니 굳어 있던 어깨가 훨씬 편해졌어요." },
+  { name: "이○○", meta: "경기 수원 · 홈타이", rating: 5, text: "굳이 나가지 않고 집에서 받을 수 있어 좋았습니다. 응대도 정중했고 약속한 시간도 잘 지켜졌어요." },
+  { name: "박○○", meta: "부산 해운대 · 아로마", rating: 4, text: "숙소로 아로마를 불렀는데 오일 향이 은은하고 분위기가 차분해 푹 쉬다 갔습니다." },
+  { name: "정○○", meta: "인천 · 24시간", rating: 5, text: "자정 가까운 시간에 문의했는데도 응대가 빨랐고, 안내받은 금액 그대로여서 마음이 놓였습니다." },
+  { name: "최○○", meta: "대구 · 타이마사지", rating: 5, text: "스트레칭 중심으로 쭉쭉 풀어 주셔서 개운했어요. 다음에도 같은 구성으로 받고 싶네요." },
+  { name: "한○○", meta: "서울 마포 · 홈타이", rating: 4, text: "홈타이가 처음이라 걱정했는데 준비할 것들을 미리 알려 주셔서 부담 없이 받았습니다." },
 ];
 
 export function reviewsSection() {
@@ -342,8 +342,8 @@ export function reviewsSection() {
   <section class="reviews" aria-label="고객 후기">
     <div class="container">
       <div class="reviews-head">
-        <span class="eyebrow">고객 후기</span>
-        <h2>실제 이용 고객의 후기</h2>
+        <span class="eyebrow">이용 후기</span>
+        <h2>먼저 받아 본 분들의 이야기</h2>
         <div class="rating-badge">
           <span class="g">G</span>
           <span class="score">4.8</span>
@@ -352,7 +352,7 @@ export function reviewsSection() {
         </div>
       </div>
       <div class="grid grid-3">${cards}</div>
-      <p class="reviews-note">후기는 이용 고객이 남긴 내용을 바탕으로 정리한 예시이며, 실제 경험과 만족도는 개인·업체에 따라 다를 수 있습니다.</p>
+      <p class="reviews-note">위 후기는 이용자가 전한 내용을 간추려 구성한 예시로, 실제 만족도는 지역·업체·관리사에 따라 달라질 수 있습니다.</p>
     </div>
   </section>`;
 }
