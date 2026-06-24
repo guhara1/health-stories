@@ -27,15 +27,15 @@ python tools/indexnow.py
 python tools/indexnow.py /outcall/ /region/seoul/gangnam/
 ```
 
-전제: 키 파일이 `https://massageintegration.com/b00508e375ed8ff4e993dc41ca0b8c4a.txt`
+전제: 키 파일이 `https://health-stories.org/b00508e375ed8ff4e993dc41ca0b8c4a.txt`
 로 게시되어 있어야 합니다(빌드 시 `dist/`에 자동 생성 → 배포하면 충족).
 
 ## 2. 네이버 — Search Advisor
 
 1. https://searchadvisor.naver.com → 사이트 등록
 2. 소유 확인: `<head>`에 이미 인증 메타가 들어 있음 (자동 확인됨)
-3. **요청 → 사이트맵 제출**: `https://massageintegration.com/sitemap.xml`
-4. **요청 → RSS 제출**: `https://massageintegration.com/rss.xml`
+3. **요청 → 사이트맵 제출**: `https://health-stories.org/sitemap.xml`
+4. **요청 → RSS 제출**: `https://health-stories.org/rss.xml`
 5. IndexNow는 위 `tools/indexnow.py`로 즉시 통보 (네이버 IndexNow 참여)
 
 ## 3. 구글 — Search Console (기본 경로)
@@ -64,7 +64,7 @@ GOOGLE_APPLICATION_CREDENTIALS=sa.json python tools/google_indexing.py /outcall/
 
 | 변수 | 기본값 | 설명 |
 |---|---|---|
-| `HOST` | `massageintegration.com` | 도메인 |
+| `HOST` | `health-stories.org` | 도메인 |
 | `SCHEME` | `https` | 프로토콜 |
 | `INDEXNOW_KEY` | `b00508e375ed8ff4e993dc41ca0b8c4a` | IndexNow 키 |
 | `GOOGLE_APPLICATION_CREDENTIALS` | — | 구글 서비스 계정 JSON 경로 |

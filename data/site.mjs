@@ -4,10 +4,10 @@ export const site = {
   legalName: "헬스 스토리 출장마사지 안내",
   tagline: "전국 출장마사지·홈타이 방문 예약 안내",
   // 검색 색인용 기본 도메인 (배포 시 환경변수 SITE_URL 로 교체 가능)
-  baseUrl: process.env.SITE_URL || "https://massageintegration.com",
+  baseUrl: process.env.SITE_URL || "https://health-stories.org",
   phone: "0508-202-4719",
   phoneHref: "tel:0508-202-4719",
-  email: "help@massageintegration.com",
+  email: "help@health-stories.org",
   locale: "ko_KR",
   // E-E-A-T: 책임 저자/검수자 정보
   author: {

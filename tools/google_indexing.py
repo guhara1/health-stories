@@ -23,7 +23,7 @@ import os
 import sys
 import xml.etree.ElementTree as ET
 
-HOST = os.environ.get("HOST", "massageintegration.com")
+HOST = os.environ.get("HOST", "health-stories.org")
 SCHEME = os.environ.get("SCHEME", "https")
 SITEMAP = os.path.join(os.path.dirname(__file__), "..", "dist", "sitemap.xml")
 ENDPOINT = "https://indexing.googleapis.com/v3/urlNotifications:publish"

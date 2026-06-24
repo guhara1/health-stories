@@ -26,9 +26,9 @@ jobs:
       - name: Build static site
         run: node scripts/build.mjs
         env:
-          # 프로젝트 Pages는 https://<user>.github.io/<repo>/ 하위 경로로 서빙됨
-          BASE_PATH: /health-stories
-          SITE_URL: https://guhara1.github.io/health-stories
+          # 커스텀 루트 도메인(health-stories.org) 배포 — 하위 경로 없음
+          BASE_PATH: ""
+          SITE_URL: https://health-stories.org
       - name: Configure Pages
         # enablement: true → 워크플로에서 Pages 사이트 자동 활성화 시도.
         # (저장소 Settings → Pages → Source: GitHub Actions 가 이미 켜져 있으면 그대로 사용)
